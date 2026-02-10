@@ -4,14 +4,8 @@
  */
 
 const CONFIG = {
-    // For local development
-    // API_URL: 'http://localhost:5000/api',
-
-    // For Hostinger deployment with backend on subdomain
-    // API_URL: 'https://api.yourdomain.com/api',
-
-    // For Hostinger deployment with backend on same domain
-    API_URL: 'https://yourdomain.com/api',
+    // START HERE: This is the URL for your LIVE backend on Render
+    API_URL: 'https://wildernesschatbot.onrender.com',
 
     // Chat widget settings
     WIDGET_POSITION: 'bottom-right',
@@ -26,7 +20,9 @@ const CONFIG = {
     ENABLE_TYPING_INDICATOR: true,
 };
 
-// Auto-detect environment
+// Optional: Override for local testing if running backend locally
 if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-    CONFIG.API_URL = 'http://localhost:5000/api';
+    // Uncomment the line below to test with local backend instead of Render
+    // CONFIG.API_URL = 'http://localhost:5000/api';
+    console.log('🚧 Running locally. Connecting to:', CONFIG.API_URL);
 }
