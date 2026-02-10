@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wilderness Destinations - Safari Concierge</title>
-    <meta name="description" content="Your personal safari specialist for luxury wilderness experiences across Africa. Discover 55+ camps in Botswana, Rwanda, Namibia, Kenya, and beyond.">
+    <meta name="description"
+        content="Your personal safari specialist for luxury wilderness experiences across Africa. Discover 55+ camps in Botswana, Rwanda, Namibia, Kenya, and beyond.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <!-- Hero Section -->
     <section class="hero">
@@ -80,7 +85,7 @@
                 </svg>
             </button>
         </div>
-        
+
         <div class="chat-messages" id="chatMessages">
             <div class="message bot-message">
                 <div class="message-avatar">
@@ -90,27 +95,24 @@
                     </svg>
                 </div>
                 <div class="message-content">
-                    <p>Welcome to Wilderness Destinations! 🌍</p>
-                    <p>I'm your personal safari specialist. I can help you discover our 55+ camps across Africa, from luxury lodges in Botswana to gorilla trekking in Rwanda.</p>
-                    <p>What kind of wilderness experience are you dreaming of?</p>
+                    <p>Dumelang! I'm Tumi, your personal Safari Specialist. 🌍</p>
+                    <p>I'm here to help you craft your perfect African wilderness experience.</p>
+                    <p>To get started, could you please share your name, telephone number, and email address?</p>
                 </div>
             </div>
         </div>
-        
+
         <div class="chat-input-container">
-            <div class="quick-replies" id="quickReplies">
+            <div class="quick-replies" id="quickReplies" style="display: none;">
                 <button class="quick-reply-btn" data-message="I want to see big cats">🦁 Big Cats</button>
                 <button class="quick-reply-btn" data-message="Tell me about gorilla trekking">🦍 Gorillas</button>
-                <button class="quick-reply-btn" data-message="I'm looking for a sustainable honeymoon">💚 Sustainable</button>
+                <button class="quick-reply-btn" data-message="I'm looking for a sustainable honeymoon">💚
+                    Sustainable</button>
                 <button class="quick-reply-btn" data-message="Show me star bed experiences">⭐ Star Beds</button>
             </div>
             <div class="chat-input">
-                <input 
-                    type="text" 
-                    id="chatInput" 
-                    placeholder="Ask about destinations, experiences, or availability..."
-                    autocomplete="off"
-                >
+                <input type="text" id="chatInput" placeholder="Ask about destinations, experiences, or availability..."
+                    autocomplete="off">
                 <button class="send-button" id="sendBtn">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -123,13 +125,15 @@
 
     <!-- Chat Toggle Button -->
     <button class="chat-toggle" id="chatToggle">
-        <svg class="chat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg class="chat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
         </svg>
         <span class="notification-badge">1</span>
     </button>
 
-    <script src="config.js"></script>
+    <script src="config-v3.js"></script>
     <script src="chatbot.js"></script>
 </body>
+
 </html>

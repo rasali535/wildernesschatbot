@@ -349,6 +349,25 @@ class WildernessChatbot:
     def process_message(self, user_id: str, message: str) -> Dict:
         """Process user message and generate response"""
         
+        # Initialize user state if new
+        if user_id not in self.conversation_state:
+            self.conversation_state[user_id] = {
+                'step': 'awaiting_details',
+                'details': {}
+            }
+            
+        # Handle initial contact details capture
+        if self.conversation_state[user_id]['step'] == 'awaiting_details':
+            # Store the message as their details (simplistic for now)
+            self.conversation_state[user_id]['details']['raw_contact'] = message
+            self.conversation_state[user_id]['step'] = 'chatting'
+            
+            return {
+                'type': 'general',
+                'message': f"Thank you! It's a pleasure to meet you. Now, let's plan your adventure. What kind of wilderness experience are you dreaming of? (e.g., Big cats, gorilla trekking, or a romantic honeymoon?)",
+                'cta': 'Tell me about your dream safari!'
+            }
+        
         # Recognize intent
         intent = self.intent_recognizer.recognize(message)
         

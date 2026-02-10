@@ -1,10 +1,11 @@
 /**
  * Configuration for Wilderness Destinations Chatbot
- * Update API_URL based on your deployment environment
+ * V3 - Deployment Fix
  */
 
 const CONFIG = {
     // START HERE: This is the URL for your LIVE backend on Render
+    // MUST INCLUDE /api AT THE END
     API_URL: 'https://wildernesschatbot.onrender.com/api',
 
     // Chat widget settings
@@ -22,10 +23,8 @@ const CONFIG = {
 
 // Optional: Override for local testing if running backend locally
 if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-    // Uncomment the line below to test with local backend instead of Render
     CONFIG.API_URL = 'http://localhost:5000/api';
     console.log('🚧 Running locally. Connecting to:', CONFIG.API_URL);
 }
 
-// Version stamp to verify latest file is loaded
-console.log('✅ Config Loaded: Version WITH-API-SUFFIX');
+console.log('✅ Config V3 Loaded: This confirms the new file is running!');
