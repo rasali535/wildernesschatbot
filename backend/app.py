@@ -111,7 +111,7 @@ def health_check():
     return jsonify({
         'status': 'healthy',
         'service': 'Wilderness Destinations Chatbot',
-        'version': '1.0.0'
+        'version': '1.1.0'
     })
 
 
