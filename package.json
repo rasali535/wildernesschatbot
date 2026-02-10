@@ -1,0 +1,27 @@
+{
+    "name": "wilderness-destinations-chatbot",
+    "version": "1.0.0",
+    "description": "Premium AI-powered safari concierge chatbot for Wilderness Destinations",
+    "main": "frontend/index.html",
+    "scripts": {
+        "start": "python backend/app.py",
+        "dev": "python backend/app.py",
+        "serve": "python -m http.server 8000 --directory frontend"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rasali535/wildernesschatbot.git"
+    },
+    "keywords": [
+        "chatbot",
+        "safari",
+        "africa",
+        "wilderness",
+        "tourism",
+        "conservation"
+    ],
+    "author": "Wilderness Destinations",
+    "license": "MIT",
+    "dependencies": {},
+    "devDependencies": {}
+}
