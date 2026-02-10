@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wilderness Destinations - Safari Concierge</title>
+    <meta name="description" content="Your personal safari specialist for luxury wilderness experiences across Africa. Discover 55+ camps in Botswana, Rwanda, Namibia, Kenya, and beyond.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Discover Africa's Wilderness</h1>
+            <p class="hero-subtitle">World-leading conservation and hospitality across 8 countries</p>
+            <button class="cta-button" id="startChatBtn">
+                <span>Speak to a Safari Specialist</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Extraordinary Experiences Await</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🦁</div>
+                    <h3>Big Cat Viewing</h3>
+                    <p>Experience the world's best predator sightings in the Okavango Delta</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🦍</div>
+                    <h3>Gorilla Trekking</h3>
+                    <p>Encounter mountain gorillas in Rwanda's pristine volcanic forests</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Star Beds</h3>
+                    <p>Sleep under the Namibian stars in the heart of the desert</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛶</div>
+                    <h3>Mokoro Trips</h3>
+                    <p>Glide through the Okavango Delta in traditional canoes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header">
+            <div class="chat-header-content">
+                <div class="chat-avatar">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+                <div class="chat-header-text">
+                    <h3>Safari Specialist</h3>
+                    <p class="chat-status">
+                        <span class="status-dot"></span>
+                        Online - Ready to help
+                    </p>
+                </div>
+            </div>
+            <button class="chat-close" id="chatCloseBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                <div class="message-avatar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+                <div class="message-content">
+                    <p>Welcome to Wilderness Destinations! 🌍</p>
+                    <p>I'm your personal safari specialist. I can help you discover our 55+ camps across Africa, from luxury lodges in Botswana to gorilla trekking in Rwanda.</p>
+                    <p>What kind of wilderness experience are you dreaming of?</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-input-container">
+            <div class="quick-replies" id="quickReplies">
+                <button class="quick-reply-btn" data-message="I want to see big cats">🦁 Big Cats</button>
+                <button class="quick-reply-btn" data-message="Tell me about gorilla trekking">🦍 Gorillas</button>
+                <button class="quick-reply-btn" data-message="I'm looking for a sustainable honeymoon">💚 Sustainable</button>
+                <button class="quick-reply-btn" data-message="Show me star bed experiences">⭐ Star Beds</button>
+            </div>
+            <div class="chat-input">
+                <input 
+                    type="text" 
+                    id="chatInput" 
+                    placeholder="Ask about destinations, experiences, or availability..."
+                    autocomplete="off"
+                >
+                <button class="send-button" id="sendBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Toggle Button -->
+    <button class="chat-toggle" id="chatToggle">
+        <svg class="chat-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span class="notification-badge">1</span>
+    </button>
+
+    <script src="chatbot.js"></script>
+</body>
+</html>
