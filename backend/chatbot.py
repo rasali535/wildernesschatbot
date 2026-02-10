@@ -178,6 +178,11 @@ class WildernessKnowledgeBase:
         """Search camps by keyword"""
         query_lower = query.lower()
         results = []
+        
+        # Ignore very short queries to avoid matching common substrings
+        if len(query_lower) < 3:
+            return []
+            
         for camp in self.camps:
             if (query_lower in camp.name.lower() or 
                 query_lower in camp.description.lower() or
@@ -352,23 +357,48 @@ class WildernessChatbot:
         # Initialize user state if new
         if user_id not in self.conversation_state:
             self.conversation_state[user_id] = {
-                'step': 'awaiting_details',
+                'step': 'awaiting_name',
                 'details': {}
             }
             
-        # Handle initial contact details capture
-        if self.conversation_state[user_id]['step'] == 'awaiting_details':
-            # Store the message as their details
-            self.conversation_state[user_id]['details']['raw_contact'] = message
+        current_step = self.conversation_state[user_id].get('step')
+        
+        # Step 1: Collect Name
+        if current_step == 'awaiting_name':
+            self.conversation_state[user_id]['details']['name'] = message
+            self.conversation_state[user_id]['step'] = 'awaiting_email'
+            
+            # Try to extract first name for friendliness
+            first_name = message.split()[0] if message else "there"
+            
+            return {
+                'type': 'general',
+                'message': f"Thank you, {first_name}. What is the best email address to reach you at?",
+                'cta': 'Please enter your email'
+            }
+            
+        # Step 2: Collect Email
+        elif current_step == 'awaiting_email':
+            self.conversation_state[user_id]['details']['email'] = message
+            self.conversation_state[user_id]['step'] = 'awaiting_phone'
+            
+            return {
+                'type': 'general',
+                'message': "Perfect. And finally, what is your telephone number (including country code)?",
+                'cta': 'Please enter your phone number'
+            }
+            
+        # Step 3: Collect Phone -> Show Destinations
+        elif current_step == 'awaiting_phone':
+            self.conversation_state[user_id]['details']['phone'] = message
             self.conversation_state[user_id]['step'] = 'chatting'
             
-            # Extract name if possible (simplistic split)
-            name_guess = message.split()[0] if message else "there"
+            name = self.conversation_state[user_id]['details'].get('name', 'there').split()[0]
             
             return {
                 'type': 'general',
                 'message': (
-                    f"Thank you, {name_guess}! It's a pleasure to connect with you.\n\n"
+                    f"Thank you, {name}! It's a pleasure to connect with you.\n\n"
                     "We offer exclusive wilderness journeys across 8 pristine African countries:\n"
                     "• Botswana 🇧🇼\n"
                     "• Rwanda 🇷🇼\n"
