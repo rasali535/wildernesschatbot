@@ -342,6 +342,9 @@ class SafariSpecialistAgent:
         return unique_recommendations, reasoning
 
 
+from sheets_logger import SheetsLogger
+from email_notifier import EmailNotifier
+
 class WildernessChatbot:
     """Main chatbot orchestrator"""
     
@@ -350,6 +353,8 @@ class WildernessChatbot:
         self.intent_recognizer = IntentRecognizer()
         self.safari_specialist = SafariSpecialistAgent(self.knowledge_base)
         self.conversation_state = {}
+        self.sheets_logger = SheetsLogger()
+        self.email_notifier = EmailNotifier()
         
     def process_message(self, user_id: str, message: str) -> Dict:
         """Process user message and generate response"""
@@ -393,12 +398,30 @@ class WildernessChatbot:
             self.conversation_state[user_id]['details']['phone'] = message
             self.conversation_state[user_id]['step'] = 'chatting'
             
-            name = self.conversation_state[user_id]['details'].get('name', 'there').split()[0]
+            name = self.conversation_state[user_id]['details'].get('name', 'there')
+            email = self.conversation_state[user_id]['details'].get('email', '')
+            phone = message
+            
+            # Log Lead to Google Sheets
+            try:
+                self.sheets_logger.log_lead(name, email, phone)
+                print(f"Logged Lead to Sheets: {name}")
+            except Exception as e:
+                print(f"Failed to log lead to sheets: {e}")
+
+            # Send Email Notification
+            try:
+                self.email_notifier.send_lead_notification(name, email, phone)
+                print(f"Sent Email Notification for: {name}")
+            except Exception as e:
+                print(f"Failed to send email notification: {e}")
+            
+            first_name = name.split()[0]
             
             return {
                 'type': 'general',
                 'message': (
-                    f"Thank you, {name}! It's a pleasure to connect with you.\n\n"
+                    f"Thank you, {first_name}! It's a pleasure to connect with you.\n\n"
                     "We offer exclusive wilderness journeys across 8 pristine African countries:\n"
                     "• Botswana 🇧🇼\n"
                     "• Rwanda 🇷🇼\n"
