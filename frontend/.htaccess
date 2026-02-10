@@ -75,8 +75,8 @@ Options -Indexes
 # ErrorDocument 404 /404.html
 # ErrorDocument 500 /500.html
 
-# Protect sensitive files
-<FilesMatch "^\.">
+# Protect sensitive files (hidden files starting with dot)
+<FilesMatch "^\\.">
     Order allow,deny
     Deny from all
 </FilesMatch>
