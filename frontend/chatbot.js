@@ -5,7 +5,7 @@
 
 class WildernessChatbotClient {
     constructor() {
-        this.apiUrl = 'http://localhost:5000/api';
+        this.apiUrl = typeof CONFIG !== 'undefined' ? CONFIG.API_URL : 'http://localhost:5000/api';
         this.sessionId = this.getOrCreateSessionId();
         this.isOpen = false;
 
