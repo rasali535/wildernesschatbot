@@ -23,6 +23,6 @@ const CONFIG = {
 // Optional: Override for local testing if running backend locally
 if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
     // Uncomment the line below to test with local backend instead of Render
-    // CONFIG.API_URL = 'http://localhost:5000/api';
+    CONFIG.API_URL = 'http://localhost:5000/api';
     console.log('🚧 Running locally. Connecting to:', CONFIG.API_URL);
 }
