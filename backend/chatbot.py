@@ -358,13 +358,28 @@ class WildernessChatbot:
             
         # Handle initial contact details capture
         if self.conversation_state[user_id]['step'] == 'awaiting_details':
-            # Store the message as their details (simplistic for now)
+            # Store the message as their details
             self.conversation_state[user_id]['details']['raw_contact'] = message
             self.conversation_state[user_id]['step'] = 'chatting'
             
+            # Extract name if possible (simplistic split)
+            name_guess = message.split()[0] if message else "there"
+            
             return {
                 'type': 'general',
-                'message': f"Thank you! It's a pleasure to meet you. Now, let's plan your adventure. What kind of wilderness experience are you dreaming of? (e.g., Big cats, gorilla trekking, or a romantic honeymoon?)",
+                'message': (
+                    f"Thank you, {name_guess}! It's a pleasure to connect with you.\n\n"
+                    "We offer exclusive wilderness journeys across 8 pristine African countries:\n"
+                    "• Botswana 🇧🇼\n"
+                    "• Rwanda 🇷🇼\n"
+                    "• Namibia 🇳🇦\n"
+                    "• Kenya 🇰🇪\n"
+                    "• Zambia 🇿🇲\n"
+                    "• Zimbabwe 🇿🇼\n"
+                    "• Tanzania 🇹🇿\n"
+                    "• South Africa 🇿🇦\n\n"
+                    "Which destination calls to you, or what kind of experience are you dreaming of?"
+                ),
                 'cta': 'Tell me about your dream safari!'
             }
         
