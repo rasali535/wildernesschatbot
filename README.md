@@ -15,6 +15,7 @@ A premium, AI-powered safari concierge chatbot for **Wilderness Destinations** -
 ### 🤖 Intelligent Chatbot
 
 - **Natural Language Understanding** - Recognizes safari-related queries and traveler intent
+- **Bilingual Support** - Full support for English and Setswana (Tswana) with automatic detection and manual switching
 - **Safari Specialist Mode** - Provides personalized camp recommendations based on interests
 - **Smart Recommendations** - Suggests camps for 25+ experiences including:
   - Big cat viewing, gorilla trekking, rhino tracking

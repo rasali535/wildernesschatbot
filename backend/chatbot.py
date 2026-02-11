@@ -486,11 +486,13 @@ class SafariSpecialistAgent:
         return unique_recommendations, reasoning
 
 
+
 from sheets_logger import SheetsLogger
 from email_notifier import EmailNotifier
+from translations import SetswanaTranslations
 
 class WildernessChatbot:
-    """Main chatbot orchestrator"""
+    """Main chatbot orchestrator with bilingual support (English/Setswana)"""
     
     def __init__(self):
         self.knowledge_base = WildernessKnowledgeBase()
@@ -499,18 +501,45 @@ class WildernessChatbot:
         self.conversation_state = {}
         self.sheets_logger = SheetsLogger()
         self.email_notifier = EmailNotifier()
+        self.translations = SetswanaTranslations()
+
         
     def process_message(self, user_id: str, message: str) -> Dict:
-        """Process user message and generate response"""
+        """Process user message and generate response with bilingual support"""
         
         # Initialize user state if new
         if user_id not in self.conversation_state:
             self.conversation_state[user_id] = {
                 'step': 'awaiting_name',
-                'details': {}
+                'details': {},
+                'language': 'en'  # Default to English
             }
-            
+        
+        # Check for language switch commands
+        message_lower = message.lower().strip()
+        if message_lower in ['setswana', 'tswana', 'tn', 'setswana puo']:
+            self.conversation_state[user_id]['language'] = 'tn'
+            return {
+                'type': 'general',
+                'message': self.translations.get('language_changed', 'tn'),
+                'cta': self.translations.get('cta_dream_safari', 'tn')
+            }
+        elif message_lower in ['english', 'en', 'english language']:
+            self.conversation_state[user_id]['language'] = 'en'
+            return {
+                'type': 'general',
+                'message': self.translations.get('language_changed', 'en'),
+                'cta': self.translations.get('cta_dream_safari', 'en')
+            }
+        
+        # Auto-detect Setswana (simple detection based on common words)
+        setswana_keywords = ['dumela', 'dumelang', 'ke batla', 'nka', 'thusa', 'rra', 'mma', 'le kae']
+        if any(keyword in message_lower for keyword in setswana_keywords):
+            if self.conversation_state[user_id]['language'] == 'en':
+                self.conversation_state[user_id]['language'] = 'tn'
+        
         current_step = self.conversation_state[user_id].get('step')
+        lang = self.conversation_state[user_id].get('language', 'en')
         
         # Step 1: Collect Name
         if current_step == 'awaiting_name':
@@ -522,8 +551,8 @@ class WildernessChatbot:
             
             return {
                 'type': 'general',
-                'message': f"Thank you, {first_name}. What is the best email address to reach you at?",
-                'cta': 'Please enter your email'
+                'message': self.translations.get('ask_email', lang, name=first_name),
+                'cta': 'Please enter your email' if lang == 'en' else 'Tsenya aterese ya gago ya imeili'
             }
             
         # Step 2: Collect Email
@@ -533,8 +562,8 @@ class WildernessChatbot:
             
             return {
                 'type': 'general',
-                'message': "Perfect. And finally, what is your telephone number (including country code)?",
-                'cta': 'Please enter your phone number'
+                'message': self.translations.get('ask_phone', lang),
+                'cta': 'Please enter your phone number' if lang == 'en' else 'Tsenya nomoro ya gago ya mogala'
             }
             
         # Step 3: Collect Phone -> Show Destinations
@@ -562,39 +591,31 @@ class WildernessChatbot:
             
             first_name = name.split()[0]
             
+            intro_message = self.translations.get('destinations_intro', lang, name=first_name)
+            destinations = self.translations.get('destinations_list', lang)
+            question = self.translations.get('ask_preference', lang)
+            
             return {
                 'type': 'general',
-                'message': (
-                    f"Thank you, {first_name}! It's a pleasure to connect with you.\n\n"
-                    "We offer exclusive wilderness journeys across 8 pristine African countries:\n"
-                    "• Botswana 🇧🇼\n"
-                    "• Rwanda 🇷🇼\n"
-                    "• Namibia 🇳🇦\n"
-                    "• Kenya 🇰🇪\n"
-                    "• Zambia 🇿🇲\n"
-                    "• Zimbabwe 🇿🇼\n"
-                    "• Tanzania 🇹🇿\n"
-                    "• South Africa 🇿🇦\n\n"
-                    "Which destination calls to you, or what kind of experience are you dreaming of?"
-                ),
-                'cta': 'Tell me about your dream safari!'
+                'message': f"{intro_message}\n{destinations}\n\n{question}",
+                'cta': self.translations.get('cta_dream_safari', lang)
             }
         
         # Recognize intent
         intent = self.intent_recognizer.recognize(message)
         
-        # Route to appropriate handler
+        # Route to appropriate handler with language support
         if intent.intent_type == 'lead_gen':
-            return self._handle_lead_gen(user_id)
+            return self._handle_lead_gen(user_id, lang)
         elif intent.intent_type == 'experience_search':
-            return self._handle_experience_search(intent)
+            return self._handle_experience_search(intent, lang)
         elif intent.intent_type == 'destination_query':
-            return self._handle_destination_query(intent)
+            return self._handle_destination_query(intent, lang)
         else:
-            return self._handle_general_info(message)
+            return self._handle_general_info(message, lang)
     
-    def _handle_experience_search(self, intent: UserIntent) -> Dict:
-        """Handle experience-based searches"""
+    def _handle_experience_search(self, intent: UserIntent, lang: str = 'en') -> Dict:
+        """Handle experience-based searches with language support"""
         recommendations, reasoning = self.safari_specialist.recommend_by_interest(intent)
         
         response_text = f"{reasoning}\n\n"
@@ -607,39 +628,41 @@ class WildernessChatbot:
             'type': 'recommendations',
             'message': response_text,
             'camps': camps_data,
-            'cta': 'Would you like to know more about any of these camps, or shall I connect you with one of our safari specialists?'
+            'cta': self.translations.get('cta_more_info', lang)
         }
     
-    def _handle_destination_query(self, intent: UserIntent) -> Dict:
-        """Handle destination-specific queries"""
+    def _handle_destination_query(self, intent: UserIntent, lang: str = 'en') -> Dict:
+        """Handle destination-specific queries with language support"""
         recommendations, reasoning = self.safari_specialist.recommend_by_interest(intent)
         
         camps_data = [asdict(camp) for camp in recommendations]
+        
+        cta_text = 'Each of these camps offers unique experiences. Would you like detailed information about any specific camp?' if lang == 'en' else 'Khampo nngwe le nngwe e tlamela ka boitemogelo jo bo kgethegileng. A o batla tshedimosetso e e tseneletseng ka ga khampo nngwe?'
         
         return {
             'type': 'destination_info',
             'message': reasoning,
             'camps': camps_data,
-            'cta': 'Each of these camps offers unique experiences. Would you like detailed information about any specific camp?'
+            'cta': cta_text
         }
     
-    def _handle_lead_gen(self, user_id: str) -> Dict:
-        """Handle lead generation / enquiry"""
+    def _handle_lead_gen(self, user_id: str, lang: str = 'en') -> Dict:
+        """Handle lead generation / enquiry with language support"""
         return {
             'type': 'lead_gen_form',
-            'message': "I'd be delighted to connect you with one of our expert safari specialists! They'll help craft your perfect wilderness adventure.",
+            'message': self.translations.get('cta_specialist', lang),
             'form_fields': [
-                {'name': 'full_name', 'label': 'Full Name', 'type': 'text', 'required': True},
-                {'name': 'email', 'label': 'Email Address', 'type': 'email', 'required': True},
-                {'name': 'phone', 'label': 'Phone Number', 'type': 'tel', 'required': False},
-                {'name': 'travel_dates', 'label': 'Preferred Travel Dates', 'type': 'text', 'required': False},
-                {'name': 'interests', 'label': 'What interests you most?', 'type': 'textarea', 'required': False},
-                {'name': 'group_size', 'label': 'Number of Travelers', 'type': 'number', 'required': False},
+                {'name': 'full_name', 'label': 'Full Name' if lang == 'en' else 'Leina Lotlhe', 'type': 'text', 'required': True},
+                {'name': 'email', 'label': 'Email Address' if lang == 'en' else 'Aterese ya Imeili', 'type': 'email', 'required': True},
+                {'name': 'phone', 'label': 'Phone Number' if lang == 'en' else 'Nomoro ya Mogala', 'type': 'tel', 'required': False},
+                {'name': 'travel_dates', 'label': 'Preferred Travel Dates' if lang == 'en' else 'Malatsi a o a Batlang', 'type': 'text', 'required': False},
+                {'name': 'interests', 'label': 'What interests you most?' if lang == 'en' else 'Ke eng e e go kgatlhang thata?', 'type': 'textarea', 'required': False},
+                {'name': 'group_size', 'label': 'Number of Travelers' if lang == 'en' else 'Palo ya Baeti', 'type': 'number', 'required': False},
             ]
         }
     
-    def _handle_general_info(self, message: str) -> Dict:
-        """Handle general information requests"""
+    def _handle_general_info(self, message: str, lang: str = 'en') -> Dict:
+        """Handle general information requests with language support"""
         # Search knowledge base
         results = self.knowledge_base.search_camps(message)
         
@@ -647,15 +670,15 @@ class WildernessChatbot:
             camps_data = [asdict(camp) for camp in results[:3]]
             return {
                 'type': 'search_results',
-                'message': f"I found {len(results)} camps that might interest you:",
+                'message': self.translations.get('search_results', lang, count=len(results)),
                 'camps': camps_data,
-                'cta': 'Would you like more details about any of these?'
+                'cta': 'Would you like more details about any of these?' if lang == 'en' else 'A o batla tshedimosetso e e oketsegileng ka ga tseno?'
             }
         else:
             return {
                 'type': 'general',
-                'message': "Wilderness Destinations offers over 55 camps across 8 African countries, each providing unique safari and conservation experiences. I can help you find the perfect destination based on your interests. What kind of experience are you looking for? Big cats, gorilla trekking, mokoro trips, or something else?",
-                'cta': 'Tell me about your dream safari!'
+                'message': self.translations.get('general_info', lang),
+                'cta': self.translations.get('cta_dream_safari', lang)
             }
     
     def submit_enquiry(self, enquiry_data: Dict) -> Dict:
