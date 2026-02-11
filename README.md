@@ -16,20 +16,25 @@ A premium, AI-powered safari concierge chatbot for **Wilderness Destinations** -
 
 - **Natural Language Understanding** - Recognizes safari-related queries and traveler intent
 - **Safari Specialist Mode** - Provides personalized camp recommendations based on interests
-- **Smart Recommendations** - Suggests camps for big cat viewing, gorilla trekking, star beds, mokoro trips, and more
+- **Smart Recommendations** - Suggests camps for 25+ experiences including:
+  - Big cat viewing, gorilla trekking, rhino tracking
+  - Helicopter safaris, hot air ballooning, e-biking
+  - Star beds, mokoro trips, canoeing adventures
+  - Birding (930+ species), stargazing, photography
+  - Cultural immersion, wellness safaris, and more
 - **Lead Generation** - Seamless enquiry workflow connecting travelers with safari specialists
 
 ### 🏕️ Comprehensive Knowledge Base
 
-- **10 Featured Camps** across 8 African countries:
-  - 🇧🇼 Botswana (Okavango Delta, Linyanti)
-  - 🇷🇼 Rwanda (Volcanoes National Park)
-  - 🇳🇦 Namibia (Sossusvlei)
-  - 🇰🇪 Kenya (Maasai Mara)
-  - 🇿🇲 Zambia (South Luangwa)
-  - 🇿🇼 Zimbabwe (Hwange)
-  - 🇹🇿 Tanzania
-  - 🇿🇦 South Africa (KwaZulu-Natal)
+- **15 Featured Camps** across 8 African countries:
+  - 🇧🇼 Botswana (Okavango Delta, Linyanti) - 5 camps
+  - 🇷🇼 Rwanda (Volcanoes, Akagera) - 2 camps
+  - 🇳🇦 Namibia (Sossusvlei, Skeleton Coast) - 2 camps
+  - 🇿🇼 Zimbabwe (Hwange, Mana Pools) - 2 camps
+  - 🇿🇲 Zambia (South Luangwa) - 1 camp
+  - 🇰🇪 Kenya (Maasai Mara) - 1 camp
+  - 🇹🇿 Tanzania (Serengeti) - 1 camp
+  - 🇿🇦 South Africa (KwaZulu-Natal) - 1 camp
 
 ### 🎨 Premium Design
 
@@ -104,10 +109,14 @@ Once the chatbot is running, try these queries:
 
 1. **"I want to see big cats"** → Recommends Mombo Camp in Okavango Delta
 2. **"Tell me about gorilla trekking"** → Shows Bisate Lodge in Rwanda
-3. **"I'm looking for a sustainable honeymoon"** → Filters eco-friendly camps
-4. **"What camps do you have in Botswana?"** → Lists 4 Botswana camps
-5. **"I want to sleep under the stars"** → Highlights Little Kulala in Namibia
-6. **"I'd like to speak to a specialist"** → Opens enquiry form
+3. **"Show me helicopter safari options"** → Highlights Okavango Delta camps
+4. **"I'm interested in rhino tracking"** → Suggests Hoanib and Chinzombo camps
+5. **"Tell me about hot air ballooning"** → Shows Little Kulala and Angama Mara
+6. **"What camps do you have in Botswana?"** → Lists 5 Botswana camps
+7. **"I want to sleep under the stars"** → Highlights star bed experiences
+8. **"Show me canoeing experiences"** → Recommends Ruckomechi Camp (Mana Pools)
+9. **"I'm looking for birding opportunities"** → Shows camps with 930+ species
+10. **"I'd like to speak to a specialist"** → Opens enquiry form
 
 ---
 
@@ -206,16 +215,35 @@ wildernesschatbot/
 
 ## 🌟 Featured Camps
 
-1. **Mombo Camp** - Okavango Delta, Botswana (Best big cat viewing)
-2. **Bisate Lodge** - Rwanda (Gorilla trekking & reforestation)
-3. **Little Kulala** - Namibia (Iconic star beds)
-4. **DumaTau** - Linyanti, Botswana (Massive elephant herds)
-5. **Sanctuary Chief's Camp** - Okavango Delta, Botswana
-6. **Vumbura Plains** - Okavango Delta, Botswana
-7. **Rocktail Beach Camp** - South Africa (Marine conservation)
-8. **Angama Mara** - Kenya (Great Migration)
-9. **Chinzombo** - Zambia (Walking safari pioneer)
-10. **Linkwasha Camp** - Zimbabwe (Painted dog conservation)
+### Botswana (5 camps)
+
+1. **Mombo Camp** - Okavango Delta (Best big cat viewing, helicopter safaris)
+2. **DumaTau** - Linyanti (Massive elephant herds, barge trips)
+3. **Sanctuary Chief's Camp** - Okavango Delta (Exclusive island, helicopter safaris)
+4. **Vumbura Plains** - Okavango Delta (Water & land activities, stargazing)
+5. **Qorokwe Camp** - Okavango Delta (Year-round water, diverse ecosystems)
+
+### Rwanda (2 camps)
+
+1. **Bisate Lodge** - Volcanoes National Park (Gorilla trekking, reforestation, star beds)
+2. **Magashi Camp** - Akagera National Park (Big Five safaris, conservation success)
+
+### Namibia (2 camps)
+
+1. **Little Kulala** - Sossusvlei (Iconic star beds, hot air ballooning, e-biking)
+2. **Hoanib Skeleton Coast Camp** - Skeleton Coast (Desert elephants, rhino tracking)
+
+### Zimbabwe (2 camps)
+
+1. **Linkwasha Camp** - Hwange National Park (Painted dog conservation, star beds)
+2. **Ruckomechi Camp** - Mana Pools (Zambezi canoeing, walking safaris)
+
+### Other Countries
+
+1. **Rocktail Beach Camp** - South Africa (Marine conservation, turtle tracking)
+2. **Angama Mara** - Kenya (Great Migration, hot air ballooning)
+3. **Chinzombo** - Zambia (Walking safari pioneer, rhino tracking)
+4. **Serengeti Under Canvas** - Tanzania (Great Migration tracking, mobile camp)
 
 ---
 

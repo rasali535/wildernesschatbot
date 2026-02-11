@@ -47,7 +47,7 @@ class WildernessKnowledgeBase:
                 country="Botswana",
                 region="Okavango Delta",
                 max_guests=16,
-                experiences=["Big Cat Viewing", "Mokoro Trips", "Game Drives", "Walking Safaris"],
+                experiences=["Big Cat Viewing", "Mokoro Trips", "Game Drives", "Walking Safaris", "Helicopter Safari"],
                 sustainability_pillars=["Wildlife Conservation", "Community Development", "Carbon Neutral"],
                 description="Situated on Mombo Island in the heart of the Okavango Delta, Mombo is renowned for exceptional predator viewing.",
                 image_url="/images/mombo-camp.jpg",
@@ -58,7 +58,7 @@ class WildernessKnowledgeBase:
                 country="Rwanda",
                 region="Volcanoes National Park",
                 max_guests=12,
-                experiences=["Gorilla Trekking", "Golden Monkey Tracking", "Conservation Activities", "Cultural Visits"],
+                experiences=["Gorilla Trekking", "Golden Monkey Tracking", "Conservation Activities", "Cultural Visits", "Star Beds"],
                 sustainability_pillars=["Reforestation", "Community Empowerment", "Endangered Species Protection"],
                 description="Bisate Lodge offers an unparalleled gorilla trekking experience with a strong focus on conservation and reforestation.",
                 image_url="/images/bisate-lodge.jpg",
@@ -69,7 +69,7 @@ class WildernessKnowledgeBase:
                 country="Namibia",
                 region="Sossusvlei",
                 max_guests=22,
-                experiences=["Star Beds", "Dune Excursions", "Hot Air Ballooning", "Nature Drives"],
+                experiences=["Star Beds", "Dune Excursions", "Hot Air Ballooning", "Nature Drives", "E-Biking", "Stargazing"],
                 sustainability_pillars=["Desert Conservation", "Solar Power", "Water Conservation"],
                 description="Experience the magic of the Namib Desert with iconic star beds and access to the world's highest dunes.",
                 image_url="/images/little-kulala.jpg",
@@ -80,7 +80,7 @@ class WildernessKnowledgeBase:
                 country="Botswana",
                 region="Linyanti",
                 max_guests=20,
-                experiences=["Elephant Viewing", "Game Drives", "Boat Cruises", "Photographic Hides"],
+                experiences=["Elephant Viewing", "Game Drives", "Boat Cruises", "Photographic Hides", "Barge Trips", "Birding"],
                 sustainability_pillars=["Elephant Conservation", "Anti-Poaching", "Habitat Protection"],
                 description="DumaTau overlooks the Linyanti River and Osprey Lagoon, famous for large elephant herds.",
                 image_url="/images/dumatau.jpg",
@@ -91,7 +91,7 @@ class WildernessKnowledgeBase:
                 country="Botswana",
                 region="Okavango Delta",
                 max_guests=20,
-                experiences=["Mokoro Trips", "Game Drives", "Walking Safaris", "Birdwatching"],
+                experiences=["Mokoro Trips", "Game Drives", "Walking Safaris", "Birdwatching", "Helicopter Safari"],
                 sustainability_pillars=["Wildlife Conservation", "Community Support", "Eco-Tourism"],
                 description="Chief's Camp is located on Chief's Island, one of the most exclusive wildlife areas in the Okavango.",
                 image_url="/images/chiefs-camp.jpg",
@@ -102,7 +102,7 @@ class WildernessKnowledgeBase:
                 country="Botswana",
                 region="Okavango Delta",
                 max_guests=32,
-                experiences=["Game Drives", "Mokoro Trips", "Fishing", "Boat Cruises"],
+                experiences=["Game Drives", "Mokoro Trips", "Fishing", "Boat Cruises", "Stargazing"],
                 sustainability_pillars=["Wetland Conservation", "Solar Energy", "Community Partnership"],
                 description="Vumbura Plains combines water and land-based activities in a pristine wilderness setting.",
                 image_url="/images/vumbura-plains.jpg",
@@ -113,7 +113,7 @@ class WildernessKnowledgeBase:
                 country="South Africa",
                 region="KwaZulu-Natal",
                 max_guests=28,
-                experiences=["Snorkeling", "Turtle Tracking", "Forest Walks", "Beach Activities"],
+                experiences=["Snorkeling", "Turtle Tracking", "Forest Walks", "Beach Activities", "Marine Conservation"],
                 sustainability_pillars=["Marine Conservation", "Turtle Protection", "Community Tourism"],
                 description="Rocktail offers a unique coastal wilderness experience with pristine beaches and coral reefs.",
                 image_url="/images/rocktail-beach.jpg",
@@ -124,7 +124,7 @@ class WildernessKnowledgeBase:
                 country="Kenya",
                 region="Maasai Mara",
                 max_guests=30,
-                experiences=["Great Migration", "Game Drives", "Hot Air Ballooning", "Cultural Visits"],
+                experiences=["Great Migration", "Game Drives", "Hot Air Ballooning", "Cultural Visits", "Photography"],
                 sustainability_pillars=["Community Education", "Wildlife Protection", "Sustainable Tourism"],
                 description="Perched high above the Maasai Mara, Angama offers breathtaking views and front-row seats to the Great Migration.",
                 image_url="/images/angama-mara.jpg",
@@ -135,7 +135,7 @@ class WildernessKnowledgeBase:
                 country="Zambia",
                 region="South Luangwa",
                 max_guests=12,
-                experiences=["Walking Safaris", "Game Drives", "Night Drives", "Photographic Hides"],
+                experiences=["Walking Safaris", "Game Drives", "Night Drives", "Photographic Hides", "Rhino Tracking"],
                 sustainability_pillars=["Anti-Poaching", "Community Development", "Wildlife Research"],
                 description="Chinzombo is an intimate camp on the banks of the Luangwa River, birthplace of the walking safari.",
                 image_url="/images/chinzombo.jpg",
@@ -146,11 +146,66 @@ class WildernessKnowledgeBase:
                 country="Zimbabwe",
                 region="Hwange National Park",
                 max_guests=18,
-                experiences=["Game Drives", "Walking Safaris", "Hide Photography", "Star Gazing"],
+                experiences=["Game Drives", "Walking Safaris", "Hide Photography", "Stargazing", "Star Beds"],
                 sustainability_pillars=["Painted Dog Conservation", "Habitat Protection", "Community Support"],
                 description="Linkwasha overlooks a waterhole in Hwange, offering exceptional wildlife viewing year-round.",
                 image_url="/images/linkwasha.jpg",
                 highlights=["Painted dog sightings", "Waterhole views", "Diverse wildlife"]
+            ),
+            Camp(
+                name="Hoanib Skeleton Coast Camp",
+                country="Namibia",
+                region="Skeleton Coast",
+                max_guests=16,
+                experiences=["Desert-Adapted Wildlife", "Nature Drives", "Rhino Tracking", "E-Biking", "Stargazing"],
+                sustainability_pillars=["Desert Conservation", "Rhino Protection", "Community Partnership"],
+                description="Experience the dramatic Skeleton Coast with desert-adapted elephants and rhinos in one of Earth's most remote locations.",
+                image_url="/images/hoanib-skeleton.jpg",
+                highlights=["Desert elephants", "Skeleton Coast", "Rhino tracking"]
+            ),
+            Camp(
+                name="Ruckomechi Camp",
+                country="Zimbabwe",
+                region="Mana Pools",
+                max_guests=20,
+                experiences=["Canoeing", "Walking Safaris", "Game Drives", "Fishing", "Cultural Visits"],
+                sustainability_pillars=["Zambezi Conservation", "Community Support", "Wildlife Protection"],
+                description="Explore the iconic Zambezi River and Mana Pools on canoe safaris and walking adventures.",
+                image_url="/images/ruckomechi.jpg",
+                highlights=["Zambezi canoeing", "Walking safaris", "Mana Pools access"]
+            ),
+            Camp(
+                name="Magashi Camp",
+                country="Rwanda",
+                region="Akagera National Park",
+                max_guests=12,
+                experiences=["Big Cat Viewing", "Game Drives", "Boat Cruises", "Birding", "Conservation Activities"],
+                sustainability_pillars=["Big Five Conservation", "Community Empowerment", "Habitat Restoration"],
+                description="Rwanda's only Big Five safari destination with exceptional wildlife and conservation success stories.",
+                image_url="/images/magashi.jpg",
+                highlights=["Big Five safaris", "Lake Rwanyakazinga", "Conservation success"]
+            ),
+            Camp(
+                name="Qorokwe Camp",
+                country="Botswana",
+                region="Okavango Delta",
+                max_guests=18,
+                experiences=["Game Drives", "Mokoro Trips", "Boat Cruises", "Walking Safaris", "Fishing"],
+                sustainability_pillars=["Wildlife Conservation", "Solar Energy", "Community Development"],
+                description="A place of stories where the permanent waters of the Okavango meet seasonal floodplains.",
+                image_url="/images/qorokwe.jpg",
+                highlights=["Year-round water", "Diverse ecosystems", "Exceptional wildlife"]
+            ),
+            Camp(
+                name="Serengeti Under Canvas",
+                country="Tanzania",
+                region="Serengeti",
+                max_guests=16,
+                experiences=["Great Migration", "Game Drives", "Hot Air Ballooning", "Walking Safaris", "Cultural Visits"],
+                sustainability_pillars=["Migration Protection", "Community Support", "Sustainable Tourism"],
+                description="Mobile tented camp following the Great Migration for front-row access to nature's greatest spectacle.",
+                image_url="/images/serengeti-canvas.jpg",
+                highlights=["Migration tracking", "Mobile camp", "Authentic safari"]
             )
         ]
     
@@ -199,22 +254,33 @@ class IntentRecognizer:
         self.intent_patterns = {
             'big_cats': r'\b(big cats?|lions?|leopards?|cheetahs?|predators?)\b',
             'gorillas': r'\b(gorillas?|primates?|mountain gorillas?|gorilla trekking)\b',
-            'elephants': r'\b(elephants?|jumbos?)\b',
-            'mokoro': r'\b(mokoro|canoe|canoeing)\b',
+            'elephants': r'\b(elephants?|jumbos?|gentle giants)\b',
+            'rhino': r'\b(rhinos?|rhinoceros|rhino tracking)\b',
+            'mokoro': r'\b(mokoro)\b',
+            'canoeing': r'\b(canoe|canoeing)\b',
             'star_beds': r'\b(star beds?|sleep under stars|sleeping under stars)\b',
             'honeymoon': r'\b(honeymoon|romantic|couples?)\b',
             'sustainable': r'\b(sustainable|sustainability|conservation|eco-friendly|green)\b',
             'luxury': r'\b(luxury|luxurious|high-end|premium|exclusive)\b',
             'migration': r'\b(migration|great migration|wildebeest)\b',
-            'walking_safari': r'\b(walking safari|walk|on foot)\b',
-            'water_activities': r'\b(water|boat|cruise|fishing|snorkel)\b',
+            'walking_safari': r'\b(walking safari|walk|on foot|guided walk)\b',
+            'water_activities': r'\b(water|boat|cruise|fishing|snorkel|barge)\b',
             'beach': r'\b(beach|coast|ocean|marine|sea)\b',
+            'helicopter': r'\b(helicopter|aerial|fly over|scenic flight)\b',
+            'hot_air_balloon': r'\b(hot air balloon|ballooning|balloon)\b',
+            'birding': r'\b(bird|birding|birdwatching|twitcher)\b',
+            'stargazing': r'\b(stargazing|stars|astronomy|night sky)\b',
+            'ebike': r'\b(e-bike|electric bike|biking|cycling)\b',
+            'photography': r'\b(photo|photography|photographic|hide)\b',
+            'wellness': r'\b(wellness|spa|relaxation|yoga|meditation)\b',
+            'cultural': r'\b(cultural|culture|local|community|village)\b',
+            'family': r'\b(family|kids|children)\b',
             'country_botswana': r'\b(botswana)\b',
             'country_rwanda': r'\b(rwanda)\b',
             'country_namibia': r'\b(namibia)\b',
             'country_kenya': r'\b(kenya|maasai mara|mara)\b',
             'country_zambia': r'\b(zambia|luangwa)\b',
-            'country_zimbabwe': r'\b(zimbabwe|hwange)\b',
+            'country_zimbabwe': r'\b(zimbabwe|hwange|mana pools)\b',
             'country_tanzania': r'\b(tanzania|serengeti)\b',
             'country_south_africa': r'\b(south africa)\b',
             'enquire': r'\b(enquire|inquiry|book|contact|speak to|talk to|specialist)\b',
@@ -278,19 +344,79 @@ class SafariSpecialistAgent:
                            'big cat' in c.description.lower() or
                            c.name == 'Mombo Camp']
             recommendations.extend(big_cat_camps)
-            reasoning += "For exceptional big cat viewing, I recommend camps in the Okavango Delta. "
+            reasoning += "For exceptional big cat viewing, I recommend camps in the Okavango Delta and Rwanda's Akagera. "
         
         # Gorilla trekking
         if entities.get('gorillas'):
             gorilla_camps = [c for c in self.kb.camps if 'Gorilla Trekking' in c.experiences]
             recommendations.extend(gorilla_camps)
-            reasoning += "For gorilla trekking, Rwanda's Bisate Lodge offers an unforgettable experience. "
+            reasoning += "For gorilla trekking, Rwanda's Bisate Lodge offers an unforgettable mountain gorilla experience. "
+        
+        # Elephants
+        if entities.get('elephants'):
+            elephant_camps = [c for c in self.kb.camps if 'Elephant Viewing' in c.experiences or 'Desert-Adapted Wildlife' in c.experiences]
+            recommendations.extend(elephant_camps)
+            reasoning += "For elephant encounters, from massive herds to rare desert-adapted elephants. "
+        
+        # Rhino tracking
+        if entities.get('rhino'):
+            rhino_camps = [c for c in self.kb.camps if 'Rhino Tracking' in c.experiences]
+            recommendations.extend(rhino_camps)
+            reasoning += "For rhino tracking experiences, Namibia and Zambia offer thrilling walking safaris. "
         
         # Star beds
         if entities.get('star_beds'):
             star_camps = [c for c in self.kb.camps if 'Star Beds' in c.experiences]
             recommendations.extend(star_camps)
-            reasoning += "For sleeping under the stars, Little Kulala in Namibia is unparalleled. "
+            reasoning += "For sleeping under the stars, our star bed experiences in Namibia, Botswana, Zimbabwe, and Rwanda are magical. "
+        
+        # Helicopter safari
+        if entities.get('helicopter'):
+            heli_camps = [c for c in self.kb.camps if 'Helicopter Safari' in c.experiences]
+            recommendations.extend(heli_camps)
+            reasoning += "For aerial perspectives, helicopter safaris over the Okavango Delta are breathtaking. "
+        
+        # Hot air ballooning
+        if entities.get('hot_air_balloon'):
+            balloon_camps = [c for c in self.kb.camps if 'Hot Air Ballooning' in c.experiences]
+            recommendations.extend(balloon_camps)
+            reasoning += "For hot air ballooning, Namibia and Tanzania offer spectacular desert and savannah flights. "
+        
+        # Birding
+        if entities.get('birding'):
+            birding_camps = [c for c in self.kb.camps if 'Birding' in c.experiences or 'Birdwatching' in c.experiences]
+            recommendations.extend(birding_camps)
+            reasoning += "For birding enthusiasts, we offer access to over 930 species across our camps. "
+        
+        # Stargazing
+        if entities.get('stargazing'):
+            stargazing_camps = [c for c in self.kb.camps if 'Stargazing' in c.experiences]
+            recommendations.extend(stargazing_camps)
+            reasoning += "For stargazing, our remote camps offer pristine night skies perfect for astronomy. "
+        
+        # E-biking
+        if entities.get('ebike'):
+            ebike_camps = [c for c in self.kb.camps if 'E-Biking' in c.experiences]
+            recommendations.extend(ebike_camps)
+            reasoning += "For e-biking adventures, explore the Namib Desert on electric bikes. "
+        
+        # Photography
+        if entities.get('photography'):
+            photo_camps = [c for c in self.kb.camps if 'Photography' in c.experiences or 'Photographic Hides' in c.experiences or 'Hide Photography' in c.experiences]
+            recommendations.extend(photo_camps)
+            reasoning += "For photographers, our camps with hides and expert guides offer exceptional opportunities. "
+        
+        # Wellness
+        if entities.get('wellness'):
+            wellness_camps = [c for c in self.kb.camps if c.max_guests <= 20 and len(c.sustainability_pillars) >= 2]
+            recommendations.extend(wellness_camps)
+            reasoning += "For wellness safaris, our intimate camps offer peaceful retreats in nature. "
+        
+        # Cultural experiences
+        if entities.get('cultural'):
+            cultural_camps = [c for c in self.kb.camps if 'Cultural Visits' in c.experiences or 'Cultural' in ' '.join(c.experiences)]
+            recommendations.extend(cultural_camps)
+            reasoning += "For cultural immersion, experience local communities and traditions across our destinations. "
         
         # Honeymoon + sustainable
         if entities.get('honeymoon') and entities.get('sustainable'):
@@ -303,12 +429,18 @@ class SafariSpecialistAgent:
         if entities.get('mokoro'):
             mokoro_camps = [c for c in self.kb.camps if 'Mokoro Trips' in c.experiences]
             recommendations.extend(mokoro_camps)
-            reasoning += "For traditional mokoro experiences, the Okavango Delta camps are perfect. "
+            reasoning += "For traditional mokoro experiences, glide through the Okavango Delta's channels. "
+        
+        # Canoeing
+        if entities.get('canoeing'):
+            canoe_camps = [c for c in self.kb.camps if 'Canoeing' in c.experiences]
+            recommendations.extend(canoe_camps)
+            reasoning += "For canoeing adventures, paddle the iconic Zambezi River at Mana Pools. "
         
         # Water activities
         if entities.get('water_activities'):
             water_camps = [c for c in self.kb.camps 
-                         if any(exp in c.experiences for exp in ['Boat Cruises', 'Mokoro Trips', 'Fishing', 'Snorkeling'])]
+                         if any(exp in c.experiences for exp in ['Boat Cruises', 'Mokoro Trips', 'Fishing', 'Snorkeling', 'Barge Trips'])]
             recommendations.extend(water_camps)
             reasoning += "For water-based activities, I recommend camps with river or delta access. "
         
@@ -317,6 +449,18 @@ class SafariSpecialistAgent:
             beach_camps = [c for c in self.kb.camps if 'Beach' in c.name or 'Snorkeling' in c.experiences]
             recommendations.extend(beach_camps)
             reasoning += "For a coastal experience, Rocktail Beach Camp offers pristine beaches and marine life. "
+        
+        # Great Migration
+        if entities.get('migration'):
+            migration_camps = [c for c in self.kb.camps if 'Great Migration' in c.experiences]
+            recommendations.extend(migration_camps)
+            reasoning += "For the Great Migration, witness nature's greatest spectacle in Kenya and Tanzania. "
+        
+        # Walking safaris
+        if entities.get('walking_safari'):
+            walking_camps = [c for c in self.kb.camps if 'Walking Safaris' in c.experiences]
+            recommendations.extend(walking_camps)
+            reasoning += "For walking safaris, experience the birthplace of walking safaris in Zambia and beyond. "
         
         # Country-specific
         for key in entities:
