@@ -37,7 +37,7 @@ class SetswanaTranslations:
             },
             'destinations_list': {
                 'en': "• Botswana 🇧🇼\n• Rwanda 🇷🇼\n• Namibia 🇳🇦\n• Kenya 🇰🇪\n• Zambia 🇿🇲\n• Zimbabwe 🇿🇼\n• Tanzania 🇹🇿\n• South Africa 🇿🇦",
-                'tn': "• Botswana 🇧🇼\n• Rwanda 🇷🇼\n• Namibia 🇳🇦\n• Kenya 🇰🇪\n• Zambia 🇿🇲\n• Zimbabwe 🇿🇼\n• Tanzania 🇹🇿\n• Afrika Borwa 🇿🇦"
+                'tn': "• Botswana 🇧🇼\n• Rwanda 🇷🇼\n• Namibia 🇳🇦\n• Kenya 🇰🇪\n• Zambia 🇿🇲\n• Zimbabwe 🇿🇼\n• Tanzania 🇹🇿\n• South Africa 🇿🇦"
             },
             'ask_preference': {
                 'en': "Which destination calls to you, or what kind of experience are you dreaming of?",

@@ -67,10 +67,8 @@ All 25+ experiences have Setswana translations:
 
 #### Country Names
 
-- **Botswana** → Botswana (same)
-- **South Africa** → Afrika Borwa
-- **Rwanda** → Rwanda (same)
-- **Namibia** → Namibia (same)
+- **All country names remain in English** (proper nouns)
+- Botswana, Rwanda, Namibia, Kenya, Zambia, Zimbabwe, Tanzania, South Africa
 
 #### Call-to-Actions
 
@@ -159,7 +157,6 @@ BOT: [Automatically switches to Setswana]
 - ✅ Onboarding flow (name, email, phone)
 - ✅ Destination introduction
 - ✅ Experience recommendations
-- ✅ Country names
 - ✅ Call-to-actions
 - ✅ Form labels
 - ✅ Language switching messages
@@ -174,6 +171,7 @@ BOT: [Automatically switches to Setswana]
 
 - ❌ Camp names (proper nouns)
 - ❌ Region names (proper nouns)
+- ❌ Country names (proper nouns)
 - ❌ Email addresses and phone numbers
 - ❌ URLs and technical data
 
@@ -196,7 +194,7 @@ BOT: [Automatically switches to Setswana]
 
 4. **Country Queries**:
    - "Dikhampo tsa Botswana" (Camps in Botswana)
-   - "Mafelo a Afrika Borwa" (Places in South Africa)
+   - "Mafelo a South Africa" (Places in South Africa)
 
 ## Future Enhancements
 
@@ -252,7 +250,7 @@ Setswana culture values respect and politeness. The chatbot uses:
 - **Total Translations**: 50+ key phrases
 - **Experience Names**: 14 translated
 - **Form Fields**: 6 translated
-- **Countries**: 8 (2 translated names)
+- **Countries**: 8 (all kept in English as proper nouns)
 - **Languages Supported**: 2 (English, Setswana)
 - **Auto-Detection Keywords**: 8
 - **Manual Switch Commands**: 6
